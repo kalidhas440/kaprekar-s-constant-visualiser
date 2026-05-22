@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kaprekar's Constant — 6174 Visualizer</title>
+  <meta name="description" content="Explore the magic of Kaprekar's Constant (6174). Enter any 4-digit number and watch it converge through an animated D3.js visualization.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kaprekar's Constant — 6174 Visualizer">
+  <meta property="og:description" content="Watch any 4-digit number spiral towards the mysterious constant 6174.">
+
+  <!-- Fonts & D3 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- ============== Navigation ============== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar__brand">
+        <div class="navbar__brand-icon">K</div>
+        <span>Kaprekar</span>
+      </div>
+      <ul class="navbar__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#visualizer">Visualizer</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============== Hero Section ============== -->
+  <section class="hero" id="hero">
+    <div class="hero__badge">
+      <span class="hero__badge-dot"></span>
+      Mathematical Curiosity
+    </div>
+
+    <h1 class="hero__title">
+      The Number That<br>
+      <span class="gradient-text">Always Returns</span>
+    </h1>
+
+    <p class="hero__subtitle">
+      Take any 4-digit number (where not all digits are the same).
+      Sort its digits in descending and ascending order, subtract — and repeat.
+      You will always arrive at <strong>6174</strong>, the Kaprekar Constant.
+    </p>
+
+    <div class="hero__cta">
+      <a href="#visualizer" class="btn btn--primary" id="try-example-btn">
+        <span class="btn-icon">✦</span> Try It Now
+      </a>
+      <a href="#about" class="btn btn--secondary">
+        Learn More ↓
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== About Section ============== -->
+  <section class="info-section" id="about">
+    <div class="container">
+      <div class="info-section__header">
+        <h2>What is <span class="gradient-text">Kaprekar's Constant</span>?</h2>
+        <p>Discovered by Indian mathematician D.R. Kaprekar in 1949, the number 6174 holds a mesmerising property.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card__icon">🔢</div>
+          <h3 class="card__title">The Routine</h3>
+          <p class="card__text">
+            Take any 4-digit number with at least two different digits.
+            Arrange its digits in descending and ascending order to form
+            two numbers. Subtract the smaller from the larger. Repeat
+            with the result.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">🌀</div>
+          <h3 class="card__title">The Convergence</h3>
+          <p class="card__text">
+            No matter which valid 4-digit number you start with, this
+            process will always reach <strong>6174</strong> within at
+            most 7 iterations. Once you hit 6174, the routine loops
+            forever: 7641 − 1467 = 6174.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card__icon">💡</div>
+          <h3 class="card__title">Why It Matters</h3>
+          <p class="card__text">
+            Kaprekar's constant is a beautiful example of a mathematical
+            fixed point. It reveals hidden structure in our number system
+            and has fascinated recreational mathematicians for over
+            70 years.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== How It Works Section ============== -->
+  <section class="info-section" id="how-it-works">
+    <div class="container">
+      <div class="info-section__header">
+        <h2>How It <span class="gradient-text">Works</span></h2>
+        <p>A worked example using the number 3524.</p>
+      </div>
+
+      <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+        <div class="card" style="text-align:center;">
+          <div class="card__icon" style="margin:0 auto 16px;">①</div>
+          <h3 class="card__title">Start: 3524</h3>
+          <p class="card__text">Sort descending → <strong>5432</strong><br>Sort ascending → <strong>2345</strong><br>5432 − 2345 = <strong>3087</strong></p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="card__icon" style="margin:0 auto 16px;">②</div>
+          <h3 class="card__title">Step 2: 3087</h3>
+          <p class="card__text">8730 − 0378 = <strong>8352</strong></p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="card__icon" style="margin:0 auto 16px;">③</div>
+          <h3 class="card__title">Step 3: 8352</h3>
+          <p class="card__text">8532 − 2358 = <strong>6174</strong></p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div class="card__icon" style="margin:0 auto 16px;">✓</div>
+          <h3 class="card__title">Converged!</h3>
+          <p class="card__text">We reached <strong>6174</strong> in just 3 steps. The process now loops forever.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Visualizer Section ============== -->
+  <section class="visualizer-section" id="visualizer">
+    <div class="container">
+      <div class="visualizer-section__header">
+        <h2>Try the <span class="gradient-text">Visualizer</span></h2>
+        <p>Enter any 4-digit number and watch the journey to 6174.</p>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-area">
+        <div class="input-group">
+          <input
+            type="text"
+            id="number-input"
+            class="input-group__field"
+            placeholder="e.g. 3524"
+            maxlength="4"
+            autocomplete="off"
+            inputmode="numeric"
+          >
+          <button class="btn btn--primary" id="visualize-btn">
+            <span class="btn-icon">▶</span> Visualize
+          </button>
+          <button class="btn btn--secondary" id="reset-btn">
+            Reset
+          </button>
+        </div>
+        <div class="error-message" id="error-message" aria-live="polite"></div>
+      </div>
+
+      <!-- Visualization Canvas -->
+      <div class="visualizer-canvas">
+        <div id="viz-container">
+          <div class="visualizer-placeholder" id="viz-placeholder">
+            <div class="visualizer-placeholder__icon">✦</div>
+            <div class="visualizer-placeholder__text">Enter a number above to begin</div>
+          </div>
+        </div>
+
+        <!-- Step counter -->
+        <div class="step-counter" id="step-counter" style="display:none;">
+          Reached 6174 in <span id="step-count-value">0</span> steps
+        </div>
+
+        <!-- Result badge -->
+        <div class="result-badge" id="result-badge" style="display:flex; justify-content:center;">
+          ✓ Converged to Kaprekar's Constant — 6174
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== Footer ============== -->
+  <footer class="footer">
+    <div class="container">
+      <p>Kaprekar's Constant Visualizer — Built with D3.js · Inspired by <a href="https://antigravity.google" target="_blank" rel="noopener">antigravity.google</a></p>
+    </div>
+  </footer>
+
+  <!-- ============== Scripts (ES modules) ============== -->
+  <script type="module" src="scripts/main.js"></script>
+
+</body>
+</html>
